@@ -33,4 +33,22 @@ export class SlideComponent implements OnInit {
       switchMap(step => this.bibleService.getPassage(step.reference).pipe(shareReplay()))
     );
   }
+
+    next() {
+        console.log('next');
+        // slideNumber++;
+    }
+
+    previous() {
+        console.log('previous');
+        // slideNumber--;
+    }
+
+    nextEnabled(): boolean {
+        return true;
+    }
+
+    previousEnabled(): boolean {
+        return false;
+    }
 }
