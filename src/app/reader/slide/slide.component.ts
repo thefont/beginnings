@@ -20,4 +20,9 @@ export class SlideComponent implements OnInit {
     console.log(this.route.snapshot.params.slideNumber);
   }
 
+  getTitle() {
+    return this.route.snapshot.params.stepNumber + ': Who is Jesus'; //todo replace with step title
+  }
+
+
 }
