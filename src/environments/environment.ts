@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  bibleApiToken: 'a9ff20aaa19a75f8d0cc03fec4301ac2',
+  defaultBibleId: '06125adad2d5898a-01' // ASV
 };
 
 /*
