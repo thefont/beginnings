@@ -6,6 +6,7 @@ import { InviteComponent } from './invite/invite.component';
 import { SettingsComponent } from './settings/settings.component';
 import {GroupsComponent} from './groups/groups.component';
 import { LoginComponent } from './login/login.component';
+import {ReaderModule} from './reader/reader.module';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  {
+    path: 'reader',
+    loadChildren: () => import('./reader/reader.module').then((m) => m.ReaderModule)
+  }
 ];
 
 @NgModule({

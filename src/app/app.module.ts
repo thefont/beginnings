@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CarouselComponent} from 'ngx-bootstrap/carousel';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { InviteComponent } from './invite/invite.component';
 import { LoginComponent } from './login/login.component';
 import { GroupsComponent } from './groups/groups.component';
+import {BannerComponent} from './home/banner/banner.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
@@ -23,17 +26,19 @@ export function playerFactory() {
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent,
+        BannerComponent,
+        GroupsComponent,
         HomeComponent,
         IconsComponent,
-        SettingsComponent,
-        LoginComponent,
         InviteComponent,
-        GroupsComponent
+        LoginComponent,
+        NavbarComponent,
+        SettingsComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        CarouselModule.forRoot(),
         HttpClientModule,
         LottieModule.forRoot({ player: playerFactory }),
         ReactiveFormsModule,

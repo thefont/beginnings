@@ -2,8 +2,9 @@
 $primary: #7f5af0;
 $secondary: #2cb67d;
 
-@import "bootstrap";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap/scss/bootstrap";
+@import "scripture-styles/dist/css/scripture-styles.css";
 
 // fonts
 @font-face {
