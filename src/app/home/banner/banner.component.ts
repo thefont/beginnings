@@ -11,11 +11,11 @@ export class BannerComponent {
     { image: `assets/images/banners/0.jpeg`, text: `Creation to Christ`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
     { image: `assets/images/banners/1.jpeg`, text: `Becoming Disciples`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
     { image: `assets/images/banners/2.jpeg`, text: `Training Labourers`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
-    { image: `assets/images/banners/2.jpeg`, text: `Stories of Hope`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
-    { image: `assets/images/banners/2.jpeg`, text: `Seven Signs of John`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
-    { image: `assets/images/banners/2.jpeg`, text: `For Such a Time`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
-    { image: `assets/images/banners/2.jpeg`, text: `Commands of Christ`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
-    { image: `assets/images/banners/2.jpeg`, text: `Discover Christmas`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`}
+    { image: `assets/images/banners/3.jpeg`, text: `Stories of Hope`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
+    { image: `assets/images/banners/4.jpeg`, text: `Seven Signs of John`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
+    { image: `assets/images/banners/5.jpeg`, text: `For Such a Time`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
+    { image: `assets/images/banners/6.jpeg`, text: `Commands of Christ`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`},
+    { image: `assets/images/banners/7.jpeg`, text: `Discover Christmas`, descr: `Discover God's beautiful story of creation, and follow the threads all the way to Christ's arrival`}
   ];
   activeSlideIndex = 0;
 

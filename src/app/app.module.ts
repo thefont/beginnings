@@ -17,31 +17,33 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function playerFactory() {
-  return player;
+    return player;
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BannerComponent,
-    NavbarComponent,
-    HomeComponent,
-    IconsComponent,
-    SettingsComponent,
-    LoginComponent,
-    InviteComponent,
-    GroupsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CarouselModule.forRoot(),
-    HttpClientModule,
-    LottieModule.forRoot({ player: playerFactory })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        BannerComponent,
+        GroupsComponent,
+        HomeComponent,
+        IconsComponent,
+        InviteComponent,
+        LoginComponent,
+        NavbarComponent,
+        SettingsComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        CarouselModule.forRoot(),
+        HttpClientModule,
+        LottieModule.forRoot({ player: playerFactory }),
+        ReactiveFormsModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

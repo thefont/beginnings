@@ -5,3 +5,13 @@ $secondary: #2cb67d;
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "~bootstrap/scss/bootstrap";
 @import "scripture-styles/dist/css/scripture-styles.css";
+
+// fonts
+@font-face {
+    font-family: "Raleway";
+    src: local("Raleway"), url(./assets/fonts/Raleway-VariableFont_wght.ttf) format("truetype");
+}
+@font-face {
+    font-family: "Raleway Italic";
+    src: local("Raleway Italic"), url(./assets/fonts/Raleway-Italic-VariableFont_wght.ttf) format("truetype");
+}
