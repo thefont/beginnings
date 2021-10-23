@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { IconsComponent } from './icons/icons.component';
 import { SettingsComponent } from './settings/settings.component';
 import { InviteComponent } from './invite/invite.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InviteComponent } from './invite/invite.component';
     HomeComponent,
     IconsComponent,
     SettingsComponent,
-    InviteComponent
+    InviteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
