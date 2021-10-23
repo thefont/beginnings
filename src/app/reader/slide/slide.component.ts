@@ -34,12 +34,12 @@ export class SlideComponent implements OnInit {
     );
   }
 
-    next() {
+    next(): void {
         console.log('next');
         // slideNumber++;
     }
 
-    previous() {
+    previous(): void {
         console.log('previous');
         // slideNumber--;
     }
