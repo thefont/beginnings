@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { IconsComponent } from './icons/icons.component';
 import { SettingsComponent } from './settings/settings.component';
 import { InviteComponent } from './invite/invite.component';
+import { LoginComponent } from './login/login.component';
 import { GroupsComponent } from './groups/groups.component';
 
 @NgModule({
@@ -17,6 +18,8 @@ import { GroupsComponent } from './groups/groups.component';
     HomeComponent,
     IconsComponent,
     SettingsComponent,
+    InviteComponent,
+    LoginComponent,
     InviteComponent,
     GroupsComponent
   ],
