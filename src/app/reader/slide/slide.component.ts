@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Observable} from 'rxjs';
+import {Observable, Subject, Subscription} from 'rxjs';
 import {BibleService, PassageResponse} from 'src/app/providers/bible.service';
 import {SlideType} from '../../models/slide.enum';
-import {map, shareReplay, switchMap, tap} from 'rxjs/operators';
+import {map, shareReplay, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {Step} from 'src/app/models/steps.model';
 import {StepService} from 'src/app/providers/step.service';
 import {Slide} from 'src/app/models/slide.model';
@@ -13,13 +13,14 @@ import {Slide} from 'src/app/models/slide.model';
     templateUrl: './slide.component.html',
     styleUrls: ['./slide.component.scss']
 })
-export class SlideComponent implements OnInit {
+export class SlideComponent implements OnInit, OnDestroy {
     step$: Observable<Step>;
     slide$: Observable<Slide>;
     passage$: Observable<PassageResponse>;
     SlideType = SlideType;
     slideNumber$: Observable<number>;
     stepNumber$: Observable<number>;
+    destroy$ = new Subject();
 
     slideNumber: number;
     stepNumber: number;
@@ -44,8 +45,8 @@ export class SlideComponent implements OnInit {
             switchMap(step => this.bibleService.getPassage(step.reference).pipe(shareReplay()))
         );
 
-        this.slideNumber$.subscribe(x => this.slideNumber = +x);
-        this.stepNumber$.subscribe(x => this.stepNumber = +x);
+        this.slideNumber$.pipe(takeUntil(this.destroy$)).subscribe(x => this.slideNumber = +x);
+        this.stepNumber$.pipe(takeUntil(this.destroy$)).subscribe(x => this.stepNumber = +x);
     }
 
     next(): void {
@@ -64,5 +65,10 @@ export class SlideComponent implements OnInit {
 
     previousEnabled(): boolean {
         return this.route.snapshot.params.slideNumber > 1;
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.unsubscribe();
     }
 }
