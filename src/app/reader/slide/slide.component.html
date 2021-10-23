@@ -1,24 +1,24 @@
 <ng-container [ngSwitch]="getSlideType()">
-  <ng-container *ngSwitchCase="SlideType.BibleVerse">
-    <div class="container">
-      <h2>{{ (title$ | async) }}</h2>
-      <h4>{{ (passage$ | async)?.reference }}</h4>
-      <div class="scripture-styles" [innerHTML]="(passage$ | async)?.content"></div>
-    </div>
-  </ng-container>
+    <ng-container *ngSwitchCase="SlideType.BibleVerse">
+        <div class="container">
+            <h2>{{ getStepTitle() }}</h2>
+            <h4>{{ (passage$ | async)?.reference }}</h4>
+            <div class="scripture-styles" [innerHTML]="(passage$ | async)?.content"></div>
+        </div>
+    </ng-container>
 
-  <ng-container *ngSwitchCase="SlideType.FollowUp">
-    <div class="container followup">
-      <h2>Finished!</h2>
-      <h4>Follow up with Karen</h4>
-    </div>
-  </ng-container>
+    <ng-container *ngSwitchCase="SlideType.FollowUp">
+        <div class="container followup">
+            <h2>Finished!</h2>
+            <h4>Follow up with Karen</h4>
+        </div>
+    </ng-container>
 
-  <ng-container *ngSwitchCase="SlideType.Question">
-    <div class="container">
-      <h2>{{ (title$ | async) }}</h2>
-      <h4>{{ (passage$ | async)?.reference }}</h4>
-      <div class="scripture-styles" [innerHTML]="(passage$ | async)?.content"></div>
-    </div>
-  </ng-container>
+    <ng-container *ngSwitchCase="SlideType.Question">
+        <div class="container">
+            <h2>{{ getStepTitle() }}</h2>
+            <h4>{{ getSlideTitle() }}</h4>
+            <textarea rows="15" cols="39"></textarea>
+        </div>
+    </ng-container>
 </ng-container>
