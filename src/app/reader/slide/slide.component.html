@@ -8,10 +8,17 @@
   </ng-container>
 
   <ng-container *ngSwitchCase="SlideType.FollowUp">
-    <h2>Follow up</h2>
+    <div class="container followup">
+      <h2>Finished!</h2>
+      <h4>Follow up with Karen</h4>
+    </div>
   </ng-container>
 
   <ng-container *ngSwitchCase="SlideType.Question">
-    <h2>Question</h2>
+    <div class="container">
+      <h2>{{ (title$ | async) }}</h2>
+      <h4>{{ (passage$ | async)?.reference }}</h4>
+      <div class="scripture-styles" [innerHTML]="(passage$ | async)?.content"></div>
+    </div>
   </ng-container>
 </ng-container>

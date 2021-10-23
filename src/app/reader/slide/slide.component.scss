@@ -1,3 +1,11 @@
 .container {
   padding: 16px;
 }
+
+.followup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}

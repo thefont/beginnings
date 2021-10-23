@@ -21,12 +21,12 @@ export class SlideComponent implements OnInit {
   ngOnInit(): void {
     this.passage$ = this.bibleService.getPassage('MAT.1.15-MAT.1.18', false).pipe(shareReplay());
     this.title$ = this.passage$.pipe(map(x => this.route.snapshot.params.stepNumber + ': ' + 'Creation to Christ')); //todo do better
-    console.log(this.route.snapshot.params.stepNumber);
-    console.log(this.route.snapshot.params.slideNumber);
+    console.log(this.route.snapshot.params.stepNumber); //todo get the step
+    console.log(this.route.snapshot.params.slideNumber); //todo get the slide
   }
 
   getSlideType(): SlideType {
-    return SlideType.BibleVerse;
+    return SlideType.FollowUp;
   }
 
 
