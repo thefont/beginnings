@@ -1,5 +1,5 @@
 export enum SlideType {
-  BibleVerse,
-  Question,
-  FollowUp
+    BibleVerse,
+    Question,
+    FollowUp
 }

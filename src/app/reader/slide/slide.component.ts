@@ -6,28 +6,26 @@ import {SlideType} from '../../models/slide.enum';
 import {map, shareReplay, tap} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-slide',
-  templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.scss']
+    selector: 'app-slide',
+    templateUrl: './slide.component.html',
+    styleUrls: ['./slide.component.scss']
 })
 export class SlideComponent implements OnInit {
-  passage$: Observable<PassageResponse>;
-  title$: Observable<string>;
-  SlideType = SlideType;
+    passage$: Observable<PassageResponse>;
+    title$: Observable<string>;
+    SlideType = SlideType;
 
-  constructor(private readonly route: ActivatedRoute, private readonly bibleService: BibleService) {
-  }
+    constructor(private readonly route: ActivatedRoute, private readonly bibleService: BibleService) {
+    }
 
-  ngOnInit(): void {
-    this.passage$ = this.bibleService.getPassage('MAT.1.15-MAT.1.18', false).pipe(shareReplay());
-    this.title$ = this.passage$.pipe(map(x => this.route.snapshot.params.stepNumber + ': ' + 'Creation to Christ')); //todo do better
-    console.log(this.route.snapshot.params.stepNumber); //todo get the step
-    console.log(this.route.snapshot.params.slideNumber); //todo get the slide
-  }
+    ngOnInit(): void {
+        this.passage$ = this.bibleService.getPassage('MAT.1.15-MAT.1.18', false).pipe(shareReplay());
+        this.title$ = this.passage$.pipe(map(x => this.route.snapshot.params.stepNumber + ': ' + 'Creation to Christ')); //todo do better
+        console.log(this.route.snapshot.params.stepNumber); //todo get the step
+        console.log(this.route.snapshot.params.slideNumber); //todo get the slide
+    }
 
-  getSlideType(): SlideType {
-    return SlideType.FollowUp;
-  }
-
-
+    getSlideType(): SlideType {
+        return SlideType.BibleVerse;
+    }
 }
