@@ -1,0 +1,44 @@
+{
+    "slides": [
+        {
+            "id": 1,
+            "title": "Read the following scripture:",
+            "slideType": 0
+        },
+        {
+            "id": 2,
+            "title": "Describe this passage in your own words.",
+            "slideType": 1,
+            "response": "This passage tells the story of..."
+        },
+        {
+            "id": 3,
+            "title": "What does this passage say about God?",
+            "slideType": 1,
+            "response": "This passage describes God as a righteous and holy judge."
+        },
+        {
+            "id": 4,
+            "title": "What does this passage say about people?",
+            "slideType": 1,
+            "response": "They are generally just terrible all the time."
+        },
+        {
+            "id": 5,
+            "title": "How will you apply what you have read this week?",
+            "slideType": 1,
+            "response": ""
+        },
+        {
+            "id": 6,
+            "title": "Who are you going to tell about what you have read?",
+            "slideType": 1,
+            "response": ""
+        },
+        {
+            "id": 7,
+            "title": "Follow Up",
+            "slideType": 2
+        }
+    ]
+}

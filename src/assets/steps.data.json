@@ -1,0 +1,135 @@
+{
+    "steps": [
+        {
+            "id": 1,
+            "title": "Creation to Christ",
+            "description": "Discover God's beatiful story of creation, and follow the threads all the way to Christ's arrival",
+            "image": "assets/images/banners/0.jpeg",
+            "action": "Start",
+            "reference": "MAT.1.1-MAT.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Becoming Disciples",
+            "description": "Disciple means student or follower. Discover what the Bible says about being a disciple of Jesus Christ.",
+            "image": "assets/images/banners/1.jpeg",
+            "action": "Start",
+            "reference": "JHN.1.1-JHN.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Training Laborers",
+            "description": "God calls Christians to labor for him by making disciples. Learn more about this from Scripture.",
+            "image": "assets/images/banners/2.jpeg",
+            "action": "Resume",
+            "reference": "JAS.1.1-JAS.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Stories of Hope",
+            "description": "The Bible is full of hope for mankind...",
+            "image": "assets/images/banners/3.jpeg",
+            "reference": "MAT.1.1-MAT.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Seven Signs of John",
+            "description": "Discover the seven signs of John laid out in the Scriptures.",
+            "image": "assets/images/banners/4.jpeg",
+            "reference": "MAT.1.1-MAT.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        },
+        {
+            "id": 6,
+            "title": "For Such a Time",
+            "description": "Discover God's beatiful story of creation, and follow the threads all the way to Christ's arrival",
+            "image": "assets/images/banners/5.jpeg",
+            "reference": "MAT.1.1-MAT.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Commands of Christ",
+            "description": "The Bible lays out God's commands for his people. Discover what Jesus teaches about these commands.",
+            "image": "assets/images/banners/6.jpeg",
+            "reference": "MAT.1.1-MAT.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Discover Christmas",
+            "description": "Many people celebrate Christmas but don't know the true significance. Discover the story of Christmas, directy from the Bible.",
+            "image": "assets/images/banners/7.jpeg",
+            "reference": "MAT.1.1-MAT.1.5",
+            "slides": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+            ]
+        }
+    ]
+}

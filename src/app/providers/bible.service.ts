@@ -57,7 +57,7 @@ export class BibleService {
       }
     ).pipe(
       map(response => {
-        console.log(response["data"]);
+        console.log(response["data"])
         return response["data"] as PassageResponse;
       })
     );
