@@ -4,6 +4,5 @@ export class Slide {
   id: number;
   title: string;
   slideType: SlideType;
-  slides: Slide[];
   response: string;
 }
