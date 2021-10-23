@@ -8,7 +8,7 @@
 /bazel-out
 
 # dependencies
-/node_modules
+node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -25,7 +25,6 @@ speed-measure-plugin*.json
 
 # IDE - VSCode
 .vscode/*
-!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
@@ -35,6 +34,7 @@ speed-measure-plugin*.json
 /.sass-cache
 /connect.lock
 /coverage
+tslint-report.json
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
@@ -44,3 +44,12 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Serverless Framework
+.serverless
+*.zip
+.deploy/package
+.webpack
+
+/ssl/server.crt
+/ssl/server.key
