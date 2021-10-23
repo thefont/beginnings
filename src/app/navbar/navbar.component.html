@@ -1,7 +1,10 @@
-<div class="tab">
-
-</div>
-<div class="tab">
+<a routerLinkActive="active" routerLink="invite" class="tab" (click)="selectTab.emit(Tab.Invite)">
+  <i class="bi bi-person-plus-fill"></i>
+</a>
+<a routerLinkActive="active" routerLink="home" class="tab" (click)="selectTab.emit(Tab.Home)">
   <i class="bi bi-house-fill"></i>
+</a>
+<a routerLinkActive="active" routerLink="settings" class="tab" (click)="selectTab.emit(Tab.Settings)">
+  <i class="bi bi-gear-fill"></i>
+</a>
 
-</div>

@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { IconsComponent } from './icons/icons.component';
+import { SettingsComponent } from './settings/settings.component';
+import { InviteComponent } from './invite/invite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    IconsComponent
+    IconsComponent,
+    SettingsComponent,
+    InviteComponent
   ],
   imports: [
     BrowserModule,

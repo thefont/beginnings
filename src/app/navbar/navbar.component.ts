@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Tab } from '../models/tab.enum';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  @Output() selectTab = new EventEmitter<Tab>();
+  Tab = Tab;
 
   constructor() { }
 

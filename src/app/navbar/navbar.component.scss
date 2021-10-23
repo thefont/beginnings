@@ -1,3 +1,17 @@
 :host {
+  display: flex;
   height: 58px;
+}
+
+.tab {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+.active {
+  border-bottom: 6px solid darken(#7f5af0, 20%);
 }
