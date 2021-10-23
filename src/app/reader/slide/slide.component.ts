@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Observable, of} from 'rxjs';
-import { BibleService, PassageResponse } from 'src/app/providers/bible.service';
+import {Observable} from 'rxjs';
+import {BibleService, PassageResponse} from 'src/app/providers/bible.service';
 import {SlideType} from '../../models/slide.enum';
-import {map, shareReplay, tap} from 'rxjs/operators';
+import {map, shareReplay} from 'rxjs/operators';
 
 @Component({
     selector: 'app-slide',
@@ -14,6 +14,7 @@ export class SlideComponent implements OnInit {
     passage$: Observable<PassageResponse>;
     title$: Observable<string>;
     SlideType = SlideType;
+    slideTitle = 'Retell'; // temporary
 
     constructor(private readonly route: ActivatedRoute, private readonly bibleService: BibleService) {
     }
@@ -26,6 +27,6 @@ export class SlideComponent implements OnInit {
     }
 
     getSlideType(): SlideType {
-        return SlideType.BibleVerse;
+        return SlideType.FollowUp;
     }
 }
