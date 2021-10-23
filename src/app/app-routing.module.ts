@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { IconsComponent } from './icons/icons.component';
 import { InviteComponent } from './invite/invite.component';
 import { SettingsComponent } from './settings/settings.component';
+import {GroupsComponent} from './groups/groups.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'invite',
     component: InviteComponent
+  },
+  {
+    path: 'groups',
+    component: GroupsComponent
   },
 ];
 

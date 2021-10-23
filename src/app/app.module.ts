@@ -9,6 +9,7 @@ import { IconsComponent } from './icons/icons.component';
 import { SettingsComponent } from './settings/settings.component';
 import { InviteComponent } from './invite/invite.component';
 import { LoginComponent } from './login/login.component';
+import { GroupsComponent } from './groups/groups.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { LoginComponent } from './login/login.component';
     IconsComponent,
     SettingsComponent,
     InviteComponent,
-    LoginComponent
+    LoginComponent,
+    InviteComponent,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,
