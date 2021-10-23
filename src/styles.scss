@@ -4,3 +4,13 @@ $secondary: #2cb67d;
 
 @import "bootstrap";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+// fonts
+@font-face {
+    font-family: "Raleway";
+    src: local("Raleway"), url(./assets/fonts/Raleway-VariableFont_wght.ttf) format("truetype");
+}
+@font-face {
+    font-family: "Raleway Italic";
+    src: local("Raleway Italic"), url(./assets/fonts/Raleway-Italic-VariableFont_wght.ttf) format("truetype");
+}

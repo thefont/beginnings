@@ -1,4 +1,7 @@
-Login works
-<div>
-  <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
-</div>
+<div class="title">Journey</div>
+<ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+<form class="login" [formGroup]="form">
+    <input formControlName="email" type="email" placeholder="Email" />
+    <input formControlName="password" type="password" placeholder="Password" />
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="onLogin()">Login</button>
+</form>

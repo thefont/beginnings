@@ -14,29 +14,31 @@ import { GroupsComponent } from './groups/groups.component';
 
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function playerFactory() {
-  return player;
+    return player;
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    IconsComponent,
-    SettingsComponent,
-    LoginComponent,
-    InviteComponent,
-    GroupsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    LottieModule.forRoot({ player: playerFactory })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        HomeComponent,
+        IconsComponent,
+        SettingsComponent,
+        LoginComponent,
+        InviteComponent,
+        GroupsComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        LottieModule.forRoot({ player: playerFactory }),
+        ReactiveFormsModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
