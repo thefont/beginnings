@@ -18,6 +18,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AvatarComponent } from './avatar/avatar.component';
 
 export function playerFactory() {
     return player;
@@ -34,6 +35,7 @@ export function playerFactory() {
         LoginComponent,
         NavbarComponent,
         SettingsComponent,
+        AvatarComponent,
     ],
     imports: [
         BrowserModule,
