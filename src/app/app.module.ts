@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CarouselComponent} from 'ngx-bootstrap/carousel';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -10,10 +10,13 @@ import { SettingsComponent } from './settings/settings.component';
 import { InviteComponent } from './invite/invite.component';
 import { LoginComponent } from './login/login.component';
 import { GroupsComponent } from './groups/groups.component';
+import {BannerComponent} from './home/banner/banner.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BannerComponent,
     NavbarComponent,
     HomeComponent,
     IconsComponent,
@@ -25,7 +28,8 @@ import { GroupsComponent } from './groups/groups.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
