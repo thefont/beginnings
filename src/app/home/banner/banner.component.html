@@ -7,9 +7,9 @@
         <h1>Step {{index+1}}</h1>
         <h4>{{slide.text}}</h4>
         {{slide.descr}}
-        <div>
+        <div *ngIf="slide.action">
           <button type="button" class="btn btn-primary">
-            Start
+            {{slide.action}}
           </button>
         </div>
       </div>
