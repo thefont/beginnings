@@ -1,5 +1,6 @@
 export enum Tab {
   Home,
   Settings,
-  Invite
+  Invite,
+  Groups
 }
