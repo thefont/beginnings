@@ -37,7 +37,7 @@ export class BibleService {
     return params;
   }
 
-  getPassage(passageId: string, inclChapterNumbers: boolean = true, inclVerseNumbers: boolean = true, inclVerseSpans: boolean = true): Observable<PassageResponse> {
+  getPassage(passageId: string, inclChapterNumbers: boolean = false, inclVerseNumbers: boolean = true, inclVerseSpans: boolean = true): Observable<PassageResponse> {
     const params = this.toParams({
       'content-type': 'html',
       'include-notes': false,
