@@ -1,2 +1,17 @@
-<h2>{{ (passage$ | async)?.reference }}</h2>
-<div class="scripture-styles" [innerHTML]="(passage$ | async)?.content"></div>
+<ng-container [ngSwitch]="getSlideType()">
+  <ng-container *ngSwitchCase="SlideType.BibleVerse">
+    <div class="container">
+      <h2>{{ (title$ | async) }}</h2>
+      <h4>{{ (passage$ | async)?.reference }}</h4>
+      <div class="scripture-styles" [innerHTML]="(passage$ | async)?.content"></div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="SlideType.FollowUp">
+    <h2>Follow up</h2>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="SlideType.Question">
+    <h2>Question</h2>
+  </ng-container>
+</ng-container>
