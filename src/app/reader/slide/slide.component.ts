@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { Observable } from 'rxjs';
 import { BibleService, PassageResponse } from 'src/app/providers/bible.service';
+import {SlideType} from '../../models/slide.enum';
 
 @Component({
   selector: 'app-slide',
@@ -22,6 +23,10 @@ export class SlideComponent implements OnInit {
 
   getTitle() {
     return this.route.snapshot.params.stepNumber + ': Who is Jesus'; //todo replace with step title
+  }
+
+  getSlideType() {
+    return SlideType.BibleVerse;
   }
 
 
