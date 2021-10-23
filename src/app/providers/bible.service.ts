@@ -1,48 +1,66 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 
-export interface BibleResponse {
-    text: string; // update with actual api response
+export interface PassageResponse {
+  bibleId: string;
+  bookId: string;
+  chapterIds: Array<string>;
+  reference: string;
+  content: string;
+  verseCount: number;
 }
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class BibleService {
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-    toParams(obj: any): HttpParams {
-        let params = new HttpParams();
-        Object.keys(obj).forEach((key) => {
-            if (obj[key] == null) {
-                return;
-            }
+  toParams(obj: any): HttpParams {
+    let params = new HttpParams();
+    Object.keys(obj).forEach((key) => {
+      if (obj[key] == null) {
+        return;
+      }
 
-            if (obj[key] instanceof Array) {
-                obj[key].forEach((array) => {
-                    params = params.append(key, array);
-                });
-            } else {
-                params = params.set(key, obj[key].toString());
-            }
+      if (obj[key] instanceof Array) {
+        obj[key].forEach((array) => {
+          params = params.append(key, array);
         });
-        return params;
-    }
+      } else {
+        params = params.set(key, obj[key].toString());
+      }
+    });
+    return params;
+  }
 
-    getVerses(book: string, chapter: number, translationId: number, startVerse: number, endVerse?: number): Observable<BibleResponse> {
-        // const params = this.toParams({
-        //     foo: 'bar',
-        //     bin: [1,2,3]
-        // });
-        // return this.http.get('https://bible.api.whatever,').pipe(
-        // map(response => {
-        //     // do any necessary mapping or model translation of the incoming data
-        //     return {} as BibleResponse;
-        // })
-        // );
-        return of({ text: 'In the beginning were cheetos' } as BibleResponse);
-    }
+  getPassage(passageId: string, inclChapterNumbers: boolean = true, inclVerseNumbers: boolean = true, inclVerseSpans: boolean = true): Observable<PassageResponse> {
+    const params = this.toParams({
+      'content-type': 'html',
+      'include-notes': false,
+      'include-titles': false,
+      'include-chapter-numbers': inclChapterNumbers,
+      'include-verse-numbers': inclVerseNumbers,
+      'include-verse-spans': inclVerseSpans
+    });
+
+    return this.http.get(`https://api.scripture.api.bible/v1/bibles/${environment.defaultBibleId}/passages/${passageId}`,
+      {
+        params: params,
+        headers: new HttpHeaders({
+          Accept: 'application/json',
+          'api-key': environment.bibleApiToken
+        })
+      }
+    ).pipe(
+      map(response => {
+        console.log(response["data"]);
+        return response["data"] as PassageResponse;
+      })
+    );
+  }
 
 }
