@@ -12,6 +12,13 @@ import { InviteComponent } from './invite/invite.component';
 import { LoginComponent } from './login/login.component';
 import { GroupsComponent } from './groups/groups.component';
 
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return player;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +26,6 @@ import { GroupsComponent } from './groups/groups.component';
     HomeComponent,
     IconsComponent,
     SettingsComponent,
-    InviteComponent,
     LoginComponent,
     InviteComponent,
     GroupsComponent
@@ -27,7 +33,8 @@ import { GroupsComponent } from './groups/groups.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]
