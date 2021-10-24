@@ -1,12 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Observable, Subject, Subscription} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {BibleService, PassageResponse} from 'src/app/providers/bible.service';
 import {SlideType} from '../../models/slide.enum';
 import {map, shareReplay, switchMap, takeUntil, tap} from 'rxjs/operators';
 import {Step} from 'src/app/models/steps.model';
 import {StepService} from 'src/app/providers/step.service';
 import {Slide} from 'src/app/models/slide.model';
+import {StorageService} from '../../providers/storage.service';
 
 @Component({
     selector: 'app-slide',
@@ -24,12 +25,14 @@ export class SlideComponent implements OnInit, OnDestroy {
 
     slideNumber: number;
     stepNumber: number;
+    lastSlide = 7;
 
     constructor(
         private readonly router: Router,
         private readonly route: ActivatedRoute,
         private readonly bibleService: BibleService,
-        private readonly stepService: StepService) {
+        private readonly stepService: StepService,
+        private readonly storageService: StorageService) {
     }
 
     ngOnInit(): void {
@@ -45,8 +48,16 @@ export class SlideComponent implements OnInit, OnDestroy {
             switchMap(step => this.bibleService.getPassage(step.reference).pipe(shareReplay()))
         );
 
-        this.slideNumber$.pipe(takeUntil(this.destroy$)).subscribe(x => this.slideNumber = +x);
+        this.slideNumber$.pipe(takeUntil(this.destroy$)).subscribe(x => this.setSlide(+x));
         this.stepNumber$.pipe(takeUntil(this.destroy$)).subscribe(x => this.stepNumber = +x);
+    }
+
+    setSlide(slideNum: number): void {
+        if (slideNum === this.lastSlide) {
+            this.storageService.write<boolean>(`completedStep:${this.stepNumber}`, true);
+            this.storageService.write<number>(`lastStep`, this.stepNumber);
+        }
+        this.slideNumber = slideNum;
     }
 
     next(): void {
@@ -60,7 +71,7 @@ export class SlideComponent implements OnInit, OnDestroy {
     }
 
     nextEnabled(): boolean {
-        return this.route.snapshot.params.slideNumber < 7;
+        return this.route.snapshot.params.slideNumber < this.lastSlide;
     }
 
     previousEnabled(): boolean {
