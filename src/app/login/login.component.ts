@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common'
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -19,13 +20,13 @@ export class LoginComponent {
         password: new FormControl('', Validators.required)
     });
 
-    constructor(private location: Location) { }
+    constructor(private location: Location, private readonly router: Router) { }
 
     animationCreated(animationItem: AnimationItem): void {
         console.log(animationItem);
     }
 
     onLogin() {
-        this.location.back();
+        this.router.navigateByUrl('/');
     }
 }
