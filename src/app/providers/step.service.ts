@@ -4,22 +4,29 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Slide } from '../models/slide.model';
 import { Step } from '../models/steps.model';
+import {StorageService} from './storage.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class StepService {
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private readonly storageService: StorageService) { }
 
     stepDataUrl = 'assets/steps.data.json';
     slidesDataUrl = 'assets/slides.data.json';
 
-    getAllSteps(): Observable<Step[]> {
-        return this.http.get<Step[]>(this.stepDataUrl).pipe(
-            map(response => {
-                return response["steps"] as Step[];
-            }));
-    }
+  getAllSteps(pathCompleted: boolean): Observable<Step[]> {
+    return this.http.get<Step[]>(this.stepDataUrl).pipe(
+      map(response => {
+          const steps = response["steps"] as Step[];
+          steps.map(x => {
+              x.action = this.storageService.get<boolean>(`completedStep:${x.id}`) ? `Review` : x.action;
+              return x;
+          });
+          return pathCompleted ? steps : steps.slice(0, 8);
+      })
+    );
+  }
 
     getStep(stepId: number): Observable<Step> {
         return this.http.get<Step>(this.stepDataUrl).pipe(

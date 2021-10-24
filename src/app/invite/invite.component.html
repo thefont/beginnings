@@ -1,14 +1,19 @@
 <div id="invite">
     <div class="title">Invite</div>
     <div class="description">
-        <p>God has commissioned his children to go make disciples of all the nations (Matthew 28:19) and your own community is a great place to start! There are tens of millions of people whoe have never engaged with Scripture before, but who are open to doing so now. These people frequently struggle with knowing where to start and with biblical language and context.</p>
-        <p>This app is designed to be a place for people begin their Journey with God, and we invite you to walk alongside them to help guide, counsel, and encourage them along the way.</p>
+        <p>God has commissioned his children to go make disciples of all the nations (Matthew 28:19) and your own
+            community is a great place to start! There are tens of millions of people whoe have never engaged with
+            Scripture before, but who are open to doing so now. These people frequently struggle with knowing where to
+            start and with biblical language and context.</p>
+        <p>This app is designed to be a place for people begin their Journey with God, and we invite you to walk
+            alongside them to help guide, counsel, and encourage them along the way.</p>
     </div>
-    <div class="description">Invite someone to walk with you through this journey via email or by scanning the following QR code</div>
+    <div class="description">Invite someone to walk with you through this journey via email or by scanning the following
+        QR code</div>
     <form [formGroup]="form">
         <div class="email-control">
             <input type="email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
-            <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-right"></i></button>
+            <button routerLink="/home" type="submit" class="btn btn-primary"><i class="bi bi-arrow-right"></i></button>
         </div>
     </form>
     <div class="or">
@@ -17,6 +22,6 @@
         <div class="spacer"></div>
     </div>
     <div id="qr-code">
-        <img alt="kung-fury" id="kung-fury" src="assets/qr-code.svg"/>
+        <img alt="work-for-us" id="work-for-us" src="assets/rnm-careers-qr.svg" />
     </div>
 </div>
