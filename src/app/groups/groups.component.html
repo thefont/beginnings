@@ -1,1 +1,9 @@
-<p>groups works!</p>
+<div class="messages">
+    <div *ngFor="let message of messages$ | async">
+        {{ message.message }}
+    </div>
+</div>
+<div class="input-control">
+    <input type="email" [formControl]="inputControl">
+    <button type="submit" class="btn btn-primary" (click)="send()"><i class="bi bi-arrow-right"></i></button>
+</div>
