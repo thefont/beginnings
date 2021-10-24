@@ -4,7 +4,13 @@
       <img [src]="step.image" alt="image step" style="display: block; height: 100%;">
       <div class="gradient"></div>
       <div class="carousel-caption">
-        <h1>Step {{index+1}}</h1>
+      <div *ngIf="index < 9; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+          <h1>Step {{index+1}}</h1>
+      </ng-template>
+      <ng-template #elseBlock>
+          <h1>Next Steps</h1>
+      </ng-template>
         <h4>{{step.title}}</h4>
         {{step.description}}
         <div *ngIf="step.action">

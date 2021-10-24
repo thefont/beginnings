@@ -5,7 +5,7 @@
             "title": "Creation to Christ",
             "description": "Discover God's beatiful story of creation, and follow the threads all the way to Christ's arrival",
             "image": "assets/images/banners/0.jpeg",
-            "action": "Start",
+            "action": "Review",
             "reference": "MAT.1.1-MAT.1.5",
             "slides": [
                 1,
@@ -22,7 +22,7 @@
             "title": "Becoming Disciples",
             "description": "Disciple means student or follower. Discover what the Bible says about being a disciple of Jesus Christ.",
             "image": "assets/images/banners/1.jpeg",
-            "action": "Start",
+            "action": "Review",
             "reference": "JHN.1.1-JHN.1.5",
             "slides": [
                 1,
@@ -39,7 +39,7 @@
             "title": "Training Laborers",
             "description": "God calls Christians to labor for him by making disciples. Learn more about this from Scripture.",
             "image": "assets/images/banners/2.jpeg",
-            "action": "Resume",
+            "action": "Review",
             "reference": "JAS.1.1-JAS.1.5",
             "slides": [
                 1,
@@ -57,6 +57,7 @@
             "description": "The Bible is full of hope for mankind...",
             "image": "assets/images/banners/3.jpeg",
             "reference": "MAT.1.1-MAT.1.5",
+            "action": "Review",
             "slides": [
                 1,
                 2,
@@ -73,6 +74,7 @@
             "description": "Discover the seven signs of John laid out in the Scriptures.",
             "image": "assets/images/banners/4.jpeg",
             "reference": "MAT.1.1-MAT.1.5",
+            "action": "Review",
             "slides": [
                 1,
                 2,
@@ -89,6 +91,7 @@
             "description": "Discover God's beatiful story of creation, and follow the threads all the way to Christ's arrival",
             "image": "assets/images/banners/5.jpeg",
             "reference": "MAT.1.1-MAT.1.5",
+            "action": "Review",
             "slides": [
                 1,
                 2,
@@ -105,6 +108,7 @@
             "description": "The Bible lays out God's commands for his people. Discover what Jesus teaches about these commands.",
             "image": "assets/images/banners/6.jpeg",
             "reference": "MAT.1.1-MAT.1.5",
+            "action": "Review",
             "slides": [
                 1,
                 2,
@@ -121,6 +125,7 @@
             "description": "Many people celebrate Christmas but don't know the true significance. Discover the story of Christmas, directy from the Bible.",
             "image": "assets/images/banners/7.jpeg",
             "reference": "MAT.1.1-MAT.1.5",
+            "action": "Start",
             "slides": [
                 1,
                 2,
@@ -130,6 +135,34 @@
                 6,
                 7
             ]
+        },
+        {
+            "id": 9,
+            "title": "Find a Local Church",
+            "description": "Now that you've discovered the Gospel, get connected with a local community.",
+            "image": "assets/images/banners/8.jpeg",
+            "action": "Connect"
+        },
+        {
+            "id": 10,
+            "title": "Invite a Friend",
+            "description": "The Journey is better together. Bring a friend along.",
+            "image": "assets/images/banners/9.jpeg",
+            "action": "Invite"
+        },
+        {
+            "id": 11,
+            "title": "Find Joy in Scripture",
+            "description": "See what the Bible says about Joy and where to find it.",
+            "image": "assets/images/banners/10.jpeg",
+            "action": "Explore"
+        },
+        {
+            "id": 12,
+            "title": "Your Identity in Christ",
+            "description": "Discover who you are and who you were made to be.",
+            "image": "assets/images/banners/11.jpeg",
+            "action": "Explore"
         }
     ]
 }
