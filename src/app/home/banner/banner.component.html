@@ -4,17 +4,20 @@
       <img [src]="step.image" alt="image step" style="display: block; height: 100%;">
       <div class="gradient"></div>
       <div class="carousel-caption">
-      <div *ngIf="index < 9; then thenBlock else elseBlock"></div>
-      <ng-template #thenBlock>
+        <div *ngIf="index < 8; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
           <h1>Step {{index+1}}</h1>
-      </ng-template>
-      <ng-template #elseBlock>
+        </ng-template>
+        <ng-template #elseBlock>
           <h1>Next Steps</h1>
-      </ng-template>
+        </ng-template>
         <h4>{{step.title}}</h4>
         {{step.description}}
         <div *ngIf="step.action">
-          <button type="button" class="btn btn-primary" [routerLink]="['/reader', step.id, '1']">
+          <button *ngIf="step.id != 10" type="button" class="btn btn-primary" [routerLink]="['/reader', step.id, '1']">
+            {{step.action}}
+          </button>
+          <button *ngIf="step.id == 10" type="button" class="btn btn-primary" [routerLink]="['/invite']">
             {{step.action}}
           </button>
         </div>
