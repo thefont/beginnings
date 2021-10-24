@@ -18,12 +18,19 @@
     <ng-container *ngSwitchCase="SlideType.FollowUp">
         <div class="container followup">
             <h2>Finished!</h2>
-            <h4>Follow up with Karen</h4>
+            <h4>Follow up with Kayla</h4>
+            <app-avatar></app-avatar>
         </div>
     </ng-container>
 
-    <div class="nav-controls">
-        <button class="btn btn-primary" [disabled]="!previousEnabled()" (click)="previous()"><i class="bi bi-arrow-left-circle-fill"></i></button>
-        <button class="btn btn-primary" [disabled]="!nextEnabled()" (click)="next()"><i class="bi bi-arrow-right-circle-fill"></i></button>
+    <div class="nav-controls-container">
+        <div class="nav-controls">
+            <button class="btn btn-primary" [disabled]="!previousEnabled()" (click)="previous()">
+                <i class="bi bi-arrow-left"></i>
+            </button>
+            <button class="btn btn-primary" [disabled]="!nextEnabled()" (click)="next()">
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
     </div>
 </ng-container>
