@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class StorageService {
   write<T>(key: string, value: any): void {
     let storedValue = '';
-    if (typeof value === 'string') {
+    if (typeof value === 'string' || 'boolean') {
       storedValue = value;
     } else {
       storedValue = JSON.stringify(value);
