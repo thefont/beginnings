@@ -16,6 +16,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { AvatarComponent } from './avatar/avatar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SlideComponent } from './reader/slide/slide.component';
 
@@ -34,6 +35,7 @@ export function playerFactory() {
         LoginComponent,
         NavbarComponent,
         SettingsComponent,
+        AvatarComponent,
         SlideComponent,
     ],
     imports: [

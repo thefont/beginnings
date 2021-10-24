@@ -1,32 +1,74 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Observable, Subject, Subscription} from 'rxjs';
 import {BibleService, PassageResponse} from 'src/app/providers/bible.service';
 import {SlideType} from '../../models/slide.enum';
-import {map, shareReplay} from 'rxjs/operators';
+import {map, shareReplay, switchMap, takeUntil, tap} from 'rxjs/operators';
+import {Step} from 'src/app/models/steps.model';
+import {StepService} from 'src/app/providers/step.service';
+import {Slide} from 'src/app/models/slide.model';
 
 @Component({
     selector: 'app-slide',
     templateUrl: './slide.component.html',
     styleUrls: ['./slide.component.scss']
 })
-export class SlideComponent implements OnInit {
+export class SlideComponent implements OnInit, OnDestroy {
+    step$: Observable<Step>;
+    slide$: Observable<Slide>;
     passage$: Observable<PassageResponse>;
-    title$: Observable<string>;
     SlideType = SlideType;
-    slideTitle = 'Retell'; // temporary
+    slideNumber$: Observable<number>;
+    stepNumber$: Observable<number>;
+    destroy$ = new Subject();
 
-    constructor(private readonly route: ActivatedRoute, private readonly bibleService: BibleService) {
+    slideNumber: number;
+    stepNumber: number;
+
+    constructor(
+        private readonly router: Router,
+        private readonly route: ActivatedRoute,
+        private readonly bibleService: BibleService,
+        private readonly stepService: StepService) {
     }
 
     ngOnInit(): void {
-        this.passage$ = this.bibleService.getPassage('MAT.1.15-MAT.1.18', false).pipe(shareReplay());
-        this.title$ = this.passage$.pipe(map(x => this.route.snapshot.params.stepNumber + ': ' + 'Creation to Christ')); //todo do better
-        console.log(this.route.snapshot.params.stepNumber); //todo get the step
-        console.log(this.route.snapshot.params.slideNumber); //todo get the slide
+        this.slideNumber$ = this.route.params.pipe(map(x => x.slideNumber));
+        this.stepNumber$ = this.route.params.pipe(map(x => x.stepNumber));
+        this.step$ = this.stepNumber$.pipe(
+            switchMap(step => this.stepService.getStep(step).pipe(shareReplay()))
+        );
+        this.slide$ = this.slideNumber$.pipe(
+            switchMap(slide => this.stepService.getSlide(slide))
+        );
+        this.passage$ = this.step$.pipe(
+            switchMap(step => this.bibleService.getPassage(step.reference).pipe(shareReplay()))
+        );
+
+        this.slideNumber$.pipe(takeUntil(this.destroy$)).subscribe(x => this.slideNumber = +x);
+        this.stepNumber$.pipe(takeUntil(this.destroy$)).subscribe(x => this.stepNumber = +x);
     }
 
-    getSlideType(): SlideType {
-        return SlideType.FollowUp;
+    next(): void {
+        const slideNumber = this.slideNumber + 1;
+        this.router.navigateByUrl(`/reader/${this.stepNumber}/${slideNumber}`);
+    }
+
+    previous(): void {
+        const slideNumber = this.slideNumber - 1;
+        this.router.navigateByUrl(`/reader/${this.stepNumber}/${slideNumber}`);
+    }
+
+    nextEnabled(): boolean {
+        return this.route.snapshot.params.slideNumber < 7;
+    }
+
+    previousEnabled(): boolean {
+        return this.route.snapshot.params.slideNumber > 1;
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.unsubscribe();
     }
 }
