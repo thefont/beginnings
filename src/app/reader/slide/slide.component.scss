@@ -10,6 +10,14 @@
     button {
         margin: 20px;
     }
+
+    ::ng-deep {
+        img {
+            padding-right: 75px;
+            padding-left: 75px;
+        }
+    }
+;
 }
 
 .title {

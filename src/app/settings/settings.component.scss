@@ -7,6 +7,13 @@
 }
 app-avatar {
     padding-bottom: 20px;
+    ::ng-deep {
+        img {
+            padding-left: 75px;
+            padding-right: 75px;
+            padding-top: 50px;
+        }
+    }
 }
 .input-wrapper {
     margin-left: 20px;
