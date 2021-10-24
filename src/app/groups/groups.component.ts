@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AuthService } from '../providers/auth.service';
 import { GroupService } from '../providers/group.service';
@@ -6,24 +6,27 @@ import { GroupService } from '../providers/group.service';
 @Component({
     selector: 'app-groups',
     templateUrl: './groups.component.html',
-    styleUrls: ['./groups.component.scss']
+    styleUrls: ['./groups.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupsComponent implements OnInit {
+export class GroupsComponent {
     messages$ = this.groupService.getMessages$;
 
     inputControl = new FormControl('');
 
-    constructor(private groupService: GroupService, private authService: AuthService) {
+    constructor(private groupService: GroupService, private authService: AuthService, private cdr: ChangeDetectorRef) {
         this.authService.user$.next(this.authService.user2);
-        // this.groupService.getMessages$.subscribe(x => console.log('messages', x));
-    }
-
-    ngOnInit(): void {
-
     }
 
     send() {
-        console.log('send:', this.inputControl.value);
         this.groupService.sendMessage(this.inputControl.value);
+        this.inputControl.patchValue('');
+        this.cdr.detectChanges();
+    }
+
+    onKeydown(event: KeyboardEvent) {
+        if (event.key === 'Enter') {
+            this.send();
+        }
     }
 }

@@ -4,4 +4,5 @@ export interface Message {
     user: User;
     message: string;
     timestamp: number;
+    isLocal: boolean;
 }

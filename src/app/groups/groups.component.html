@@ -1,9 +1,15 @@
-<div class="messages">
-    <div *ngFor="let message of messages$ | async">
-        {{ message.message }}
-    </div>
+<div class="messages-container" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <div *ngFor="let chatMessage of messages$ | async" class="single-message">
+            <div [ngClass]="chatMessage.isLocal ? 'local' : 'remote'">
+                <div class="name">{{ chatMessage.user.first + ' ' + chatMessage.user.last }}</div>
+                <div class="message">
+                    <p [innerHTML]="chatMessage.message"></p>
+                </div>
+                <app-avatar [avatarUrl]="chatMessage.user.profileImg"></app-avatar>
+            </div>
+        </div>
 </div>
 <div class="input-control">
-    <input type="email" [formControl]="inputControl">
+    <input type="email" [formControl]="inputControl" (keydown)="onKeydown($event)">
     <button type="submit" class="btn btn-primary" (click)="send()"><i class="bi bi-arrow-right"></i></button>
 </div>

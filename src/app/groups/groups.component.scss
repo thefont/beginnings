@@ -6,13 +6,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-
     display: flex;
     flex-direction: column;
-}
-
-.messages {
-    flex-grow: 1;
 }
 
 .input-control {
@@ -24,7 +19,7 @@
     box-shadow: inset 0 1px 1px hsl(0deg 0% 8% / 8%);
     padding-left: 1rem;
     align-items: center;
-    margin: .5rem 1rem;
+    margin: 0.5rem 1rem;
 
     &:focus-within {
         border: 1px solid var(--bs-primary);
@@ -50,3 +45,256 @@
         margin-right: 2px;
     }
 }
+
+.messages-container {
+    padding: 1rem 1rem 0;
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.single-message {
+    margin-bottom: .5rem;
+    color: white;
+
+    > div {
+        padding: .5rem;
+        border-radius: 20px;
+    }
+
+    .remote {
+        background-color: var(--bs-primary);
+        margin-right: 20%;
+    }
+
+    .local {
+        background-color: var(--bs-secondary);
+        margin-left: 20%;
+    }
+}
+
+.fade {
+    content: '';
+    background: linear-gradient(180deg, white 0%, #{transparentize(white, 0.15)} 50%, #{transparentize(white, 1)} 100%);
+    margin-inline-start: 1px;
+    pointer-events: none;
+    position: absolute;
+    width: calc(100% - 1px);
+}
+
+app-avatar {
+    height: 54px;
+    width: 54px;
+    border-radius: 27px;
+    overflow: hidden;
+}
+
+.name {
+    display: flex;
+    grid-area: name;
+    font-size: 8px;
+}
+
+.local {
+    display: grid;
+    grid-template-areas:
+        "name name"
+        "message profile";
+    grid-template-columns: 1fr 54px;
+
+    .message {
+        margin-right: .5rem;
+    }
+
+    .name {
+        justify-content: flex-start;
+    }
+}
+
+.remote {
+    display: grid;
+    grid-template-areas:
+        "name name"
+        "profile message";
+    grid-template-columns: 54px 1fr;
+    .message {
+        margin-left: .5rem;
+    }
+    .name {
+        justify-content: flex-end;
+    }
+}
+
+.message {
+    grid-area: message;
+}
+
+app-avatar {
+    grid-area: profile;
+}
+
+
+// .asdfasdfasdf {
+//     grid-area: messages;
+//     --chat-tail-size: 21px;
+//     align-self: flex-end;
+//     overflow: hidden;
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-end;
+//     position: relative;
+//     flex-grow: 1;
+
+//     .message-inner-container {
+//         overflow-y: auto;
+//         max-height: 100%;
+//         padding: 1.5rem;
+
+//         > .single-message:not(:last-child) {
+//             padding-bottom: 0.5rem;
+//         }
+//     }
+
+//     .single-message {
+//         width: 97%;
+
+//         > div {
+//             width: 97%;
+//             padding-bottom: 0.5rem;
+//         }
+//     }
+
+//     .message {
+//         font-size: calculatePixelPercent(14px);
+//         line-height: 135%;
+//         display: flex;
+//         color: var(--drawer-theme-groups-incoming-message-color);
+
+//         position: relative;
+//         padding: 0.625rem;
+//         background-color: var(--drawer-theme-groups-incoming-message-bubble-background);
+//         border-radius: 0.625rem;
+//         word-break: break-word;
+
+//         p {
+//             margin: 0;
+//             line-height: 1;
+//             color: var(--black);
+
+//             ::ng-deep img {
+//                 height: auto !important;
+//                 max-width: 100% !important;
+//                 border-radius: 0.5rem !important;
+//             }
+//         }
+
+//         &::before,
+//         &::after {
+//             content: '';
+//             position: absolute;
+//         }
+
+//         &::before {
+//             height: calc(var(--chat-tail-size) * 1.2);
+//             width: calc(var(--chat-tail-size) * 0.85);
+//             background-color: var(--drawer-theme-background-color);
+//             border-radius: 50% 50% 20px/10px 0;
+//             top: calc((100% - (var(--chat-tail-size) / 2)) - 12px);
+//             right: calc((100% + (var(--chat-tail-size) / 2) * -1) + 4px);
+//             left: auto;
+//         }
+//         &::after {
+//             height: calc(var(--chat-tail-size) * 1.25);
+//             width: var(--chat-tail-size);
+//             background-color: var(--drawer-theme-background-color);
+//             border-radius: 0 0 16px/14px;
+//             top: calc((100% - (var(--chat-tail-size) / 2)) - 12px);
+//             right: 100%;
+//             left: auto;
+//         }
+//     }
+
+//     .local {
+//         display: inline-grid;
+//         grid-template-areas: 'time message';
+//         grid-template-columns: auto auto;
+//         grid-column-gap: 0.75rem;
+
+//         .time {
+//             justify-content: start;
+//         }
+
+//         .message {
+//             background: var(--bs-secondary);
+//             color: white;
+//             justify-self: end;
+
+//             &::before {
+//                 border-radius: 50% 50% 0 20px/10px;
+//                 left: calc((100% + (var(--chat-tail-size) / 2) * -1) + 3px);
+//                 right: auto;
+//                 background-color: var(--bs-secondary);
+//             }
+//             &::after {
+//                 border-radius: 0 0 0 16px/14px;
+//                 left: 100%;
+//                 right: auto;
+//             }
+//         }
+
+//         rnm-profile-icon {
+//             display: none;
+//         }
+//     }
+
+//     .remote {
+//         display: inline-grid;
+//         grid-template-areas:
+//             'icon name name'
+//             'icon message time';
+//         grid-template-columns: calculateRem(29px) auto auto;
+//         grid-column-gap: 0.75rem;
+
+//         .name {
+//             color: white;
+//             font-size: calculatePixelPercent(10px);
+//             grid-area: name;
+//             line-height: 110%;
+//             margin-bottom: 0.25rem;
+//             padding-left: 1rem;
+//         }
+
+//         rnm-profile-icon {
+//             align-self: end;
+//             display: flex;
+//             flex-direction: column;
+//             grid-area: icon;
+//             justify-content: center;
+//             position: relative;
+
+//             // ::ng-deep .profile-icon {
+//             //     background: var(--drawer-theme-groups-profile-background);
+
+//             //     .icon-text {
+//             //         color: var(--drawer-theme-groups-profile-color);
+//             //     }
+//             // }
+//         }
+
+//         .message {
+//             background: var(--bs-primary);
+//             color: var(--drawer-theme-groups-profile-color);
+
+//             justify-self: start;
+
+//             .chat-text {
+//                 max-width: 28ch;
+//             }
+
+//             &::before {
+//                 background: var(--bs-primary);
+//             }
+//         }
+//     }
+// }

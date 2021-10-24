@@ -10,14 +10,14 @@ export class AuthService {
         id: 1,
         first: 'Steve',
         last: 'Rodgers',
-        profileImg: 'assets/images/kayla.png'
+        profileImg: 'assets/images/wayne.jpeg'
     } as User;
 
     user2 = {
         id: 2,
         first: 'Bruce',
         last: 'Wayne',
-        profileImg: 'assets/images/mentee.jpeg'
+        profileImg: 'assets/images/bruce.jpeg'
     } as User;
 
     user$ = new BehaviorSubject<User>(null);
