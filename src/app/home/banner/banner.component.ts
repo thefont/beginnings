@@ -5,10 +5,10 @@ import { StepService } from 'src/app/providers/step.service';
 import {StorageService} from '../../providers/storage.service';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'app-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss']
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'app-banner',
+    templateUrl: './banner.component.html',
+    styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent implements OnInit {
   steps: Observable<Step[]>;
